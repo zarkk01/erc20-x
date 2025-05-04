@@ -37,6 +37,10 @@ contract ZarkToken is ERC20, ERC20Burnable, Ownable {
         relayer = relayer_;
     }
 
+    function mint(address recipient, uint256 amount) external onlyOwner {
+        _mint(recipient, amount);
+    }
+
     /**
      * @dev Burns tokens on this chain and emits event for off-chain relayer to pick up.
      * @param amount Number of tokens to bridge.
